@@ -34,7 +34,7 @@ app.get('/create',(req,res)=>{
 })
 
 app.get('/blogs',(req,res)=>{
-  Blog.find()
+  Blog.find().sort({createdAt:-1})
     .then((results)=>{
       res.render('blogs',{title:"All blogs",blogs:results})
     })
