@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlogbOOk | <%- title  %></title>
+    <style>
+    /* Reset some default styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    
+    /* Navigation styles */
+    nav {
+      background-color: #ff6f61;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      padding: 0.5rem;
+      margin: 0 0.5rem;
+      transition: background-color 0.3s ease;
+    }
+    
+    nav a:hover {
+      background-color: #ff4d3b;
+    }
+    
+    /* Main content styles */
+    main {
+      padding: 2rem;
+    }
+    
+    section {
+      margin-bottom: 2rem;
+    }
+    .delete{
+      background-color:#ff6f61;
+      color:white;
+      position:absolute;
+      top:0;
+      right:0;
+      border-radius: 50%;
+      padding:8px;
+    }
+    .details{
+      position:relative;
+    }
+    .delete:hover{
+      cursor:pointer;
+    }
+    </style>
+</head>
+<body>
+<%- include("./partials/nav.ejs") %>
+<main>
+    <div class="details">
+        <h1><%= blog.title %> </h1>
+        <p><%= blog.body %> </p>
+        <a class="delete" data-doc="<%=blog._id %>">delete</a>
+    </div>
+</main>
+
+    <%- include("./partials/footer.ejs") %>
+    <script>
+        const trashcan = document.querySelector('a.delete');
+        trashcan.addEventListener('click',(e)=>{
+            const endpoint = `/blogs/${trashcan.dataset.doc}`;
+
+            fetch(endpoint,{
+                method: 'DELETE'
+            })
+            .then((response)=>response.json())
+            .then((data)=>window.location.href = data.redirect)
+            .catch((err)=>console.log(err))
+        })
+    </script>
+</body>
+</html>

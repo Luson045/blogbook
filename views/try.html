@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibrant Blog</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #FFF5E6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #FF8C00;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .blog-post {
+            background-color: #FFA500;
+            border-radius: 15px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-decoration: none;
+            display: block;
+            color: inherit;
+            position: relative;
+            overflow: hidden;
+        }
+        .blog-post:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+            background-color: #FF9200;
+        }
+        .blog-post::after {
+            content: "→ Read More";
+            position: absolute;
+            bottom: -30px;
+            right: 10px;
+            background-color: #FF6B00;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            transition: bottom 0.3s ease;
+        }
+        .blog-post:hover::after {
+            bottom: 10px;
+        }
+        .blog-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #FFFFFF;
+            margin-bottom: 10px;
+        }
+        .blog-snippet {
+            font-size: 16px;
+            color: #FFF5E6;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>All Blogs</h1>
+        <a href="post1.html" class="blog-post">
+            <div class="blog-title">Embracing the Power of Positivity</div>
+            <div class="blog-snippet">Discover how a positive mindset can transform your life, boost your resilience, and help you achieve your goals...</div>
+        </a>
+    </div>
+</body>
+</html>
