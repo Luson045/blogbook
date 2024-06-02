@@ -71,6 +71,7 @@
     <div class="details">
         <h1><%= blog.title %> </h1>
         <p><%= blog.body %> </p>
+        <h1>NOTE:DISABLING THE DELETE OPTION AS A SAFETY PRECAUTION.... IYKYK!</h1>
         <a class="delete" data-doc="<%=blog._id %>">delete</a>
     </div>
 </main>
@@ -78,7 +79,7 @@
     <%- include("./partials/footer.ejs") %>
     <script>
         const trashcan = document.querySelector('a.delete');
-        trashcan.addEventListener('click',(e)=>{
+        /*trashcan.addEventListener('click',(e)=>{
             const endpoint = `/blogs/${trashcan.dataset.doc}`;
 
             fetch(endpoint,{
@@ -87,7 +88,7 @@
             .then((response)=>response.json())
             .then((data)=>window.location.href = data.redirect)
             .catch((err)=>console.log(err))
-        })
+        })*/
     </script>
 </body>
 </html>
